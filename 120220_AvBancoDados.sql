@@ -38,6 +38,7 @@ create table agencia (
 go
 
 create table conta (
+	id_conta		integer			not null	primary key,
 	id_tp_con		integer			not null	constraint id_tipo_conta_fk	references tpconta(id_tp_con),
 	id_clie			integer			not null	constraint id_cliente_fk	references cliente(id_clie),
 	id_agen			integer			not null	constraint	id_agencia_fk	references	agencia(id_agen),
@@ -52,19 +53,24 @@ sp_help agencia
 /* Inclusão dados table banco*/
 	insert into banco values 
 	(1, 'Bradesco', 'Cidade de Deus,25')
-
+go
 	select * from banco
-
+go
 /* Inlcusão dados table agencia*/
 
 	insert into agencia values
 	(110, 'Vl Maria' , 'Rua Alcantara, 20 ' , 1 ),
 	(115, 'Tatuapé' , 'Rua Tuiti, 50' , 1),
 	(120, 'Centro SP' , 'Praça da Sé' , 1)
+go
+/*	Inclusão de dados table */
+
+	insert into tpconta	values
+	(10, 'Conta Corrente'),
+	(11, 'Conta Poupança'),
+	(12, 'Conta Investimento')
+go
 
 
-
-
-	
 	
 
